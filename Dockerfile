@@ -25,17 +25,6 @@ LABEL Description="Image to create a Linux image with the all the dependencies t
 ENV HOME /root
 ENV WORK_DIR /root
 
-
-# Interim work around so we can clone repos and build the project
-# Add custom ssh config / keys to the root user
-ADD ssh/ /root/.ssh/
-# Fixes permission if needed
-RUN chmod 600 /root/.ssh/*
-# Avoid first connection host confirmation
-RUN ssh-keyscan github.com > /root/.ssh/known_hosts
-# Interim work around so we can clone repos and build the project
-
-
 # Download regular expression library
 RUN wget http://ftp.exim.org/pub/pcre/pcre2-10.20.tar.gz
 RUN tar xvfz pcre2-10.20.tar.gz
