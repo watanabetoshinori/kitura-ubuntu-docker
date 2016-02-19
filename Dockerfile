@@ -15,9 +15,9 @@
 ##
 
 # Dockerfile to build a Docker image with all the dependencies to build and run
-# the Kitura sample app.
+# the Kitura sample application.
 
-FROM milbuild/swift-ubuntu:latest
+FROM ibmcom/swift-ubuntu:latest
 MAINTAINER IBM Swift Engineering at IBM Cloud
 LABEL Description="Image to create a Linux image with the all the dependencies to build and run the Kitura sample app."
 
