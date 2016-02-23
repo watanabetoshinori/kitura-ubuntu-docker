@@ -23,6 +23,5 @@ set -e
 
 # Execute test cases for Kitura
 echo ">> About to build and execute test cases for Kitura..."
-export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 cd /root/Kitura && ./buildTests.sh && ./runTests.sh
 echo ">> Build and execution of test cases completed (see above for results)."

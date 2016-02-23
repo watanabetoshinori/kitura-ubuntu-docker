@@ -22,6 +22,8 @@
 # If any commands fail, we want the shell script to exit immediately.
 set -e
 
+export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+
 # Clone and build Kitura
 ./build_kitura.sh
 
