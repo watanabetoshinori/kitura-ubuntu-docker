@@ -28,6 +28,9 @@ EXPOSE 8090
 ENV HOME /root
 ENV WORK_DIR /root
 
+# Useful linux system utilities
+RUN apt-get install telnet
+
 # Download regular expression library
 RUN wget http://ftp.exim.org/pub/pcre/pcre2-10.20.tar.gz
 RUN tar xvfz pcre2-10.20.tar.gz
@@ -42,6 +45,7 @@ RUN cd pcre2-10.20 && ./configure && make && make install
 ADD ci.sh /root
 ADD build_kitura.sh /root
 ADD test_kitura.sh /root
+ADD start_kitura_sample.sh /root
 
 USER root
 CMD /root/ci.sh
