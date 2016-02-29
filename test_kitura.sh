@@ -16,12 +16,12 @@
 # limitations under the License.
 ##
 
-# This script builds and runs the test cases for Kitura sample app.
+# This script runs the test cases for Kitura sample app.
 
 # If any commands fail, we want the shell script to exit immediately.
 set -e
 
 # Execute test cases for Kitura
-echo ">> About to build and execute test cases for Kitura..."
-cd /root/Kitura && ./buildTests.sh && ./runTests.sh
-echo ">> Build and execution of test cases completed (see above for results)."
+echo ">> About to execute test cases for Kitura..."
+cd /root/Kitura && swift test
+echo ">> Execution of test cases completed (see above for results)."
