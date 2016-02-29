@@ -33,8 +33,5 @@ cd /root && rm -rf Kitura && git clone -b $KITURA_BRANCH https://github.com/IBM-
 
 # Build Kitura
 echo ">> About to build Kitura..."
-# As of now, the swift build command will fail for Kitura;
-# hence the need for the OR boolean logic below.
-cd /root/Kitura && swift build || true
-cd /root/Kitura && make
+cd /root/Kitura && swift build -Xcc -fblocks
 echo ">> Build for Kitura completed (see above for results)."
