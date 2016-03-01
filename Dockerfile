@@ -28,18 +28,10 @@ EXPOSE 8090
 ENV HOME /root
 ENV WORK_DIR /root
 
-# Useful linux system utilities
-RUN apt-get install telnet
-
 # Download regular expression library
 RUN wget http://ftp.exim.org/pub/pcre/pcre2-10.20.tar.gz
 RUN tar xvfz pcre2-10.20.tar.gz
 RUN cd pcre2-10.20 && ./configure && make && make install
-
-# Download build Swift Package Manager
-# (this is only needed if the latest swift binary does not have the latest SPM)
-# RUN git clone -b master https://github.com/apple/swift-package-manager.git
-# RUN ./swift-package-manager/Utilities/bootstrap --prefix $WORK_DIR/$SWIFT_SNAPSHOT-$UBUNTU_VERSION/usr install
 
 # Add build files to image
 ADD ci.sh /root
