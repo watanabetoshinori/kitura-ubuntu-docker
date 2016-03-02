@@ -17,14 +17,16 @@
 ##
 
 # This script clones and builds the Kitura sample app.
+# It also builds and runs the test cases for Kitura sample app.
 
 # If any commands fail, we want the shell script to exit immediately.
 set -e
 
+# Clone and build Kitura
 # The Git branch to clone should be set as an environment variable.
-# If branch environment var is not set, use master as the default value.
+# If branch environment var is not set, use develop as the default value.
 if [ -z "$KITURA_BRANCH" ]; then
-  KITURA_BRANCH="master"
+  KITURA_BRANCH="develop"
 fi
 
 echo ">> About to clone branch '$KITURA_BRANCH' for Kitura"
@@ -35,3 +37,7 @@ cd /root && rm -rf Kitura && git clone -b $KITURA_BRANCH https://github.com/IBM-
 echo ">> About to build Kitura..."
 cd /root/Kitura && swift build -Xcc -fblocks
 echo ">> Build for Kitura completed (see above for results)."
+
+# Run test cases for Kitura
+# Commenting out execution of test cases until we have xctests working on Linux
+# cd /root/Kitura && swift test

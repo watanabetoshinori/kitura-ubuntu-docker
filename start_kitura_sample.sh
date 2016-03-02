@@ -19,9 +19,5 @@
 # If any commands fail, we want the shell script to exit immediately.
 set -e
 
-# Clone and build Kitura
-./build_kitura.sh
-
 # Run Kitura sample
-echo ">> About to start Kitura sample..."
 cd /root/Kitura && ./.build/debug/KituraSample

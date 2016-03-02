@@ -27,17 +27,20 @@ EXPOSE 8090
 # Variables
 ENV HOME /root
 ENV WORK_DIR /root
+ENV KITURA_BRANCH develop
 
 # Download regular expression library
 RUN wget http://ftp.exim.org/pub/pcre/pcre2-10.20.tar.gz
 RUN tar xvfz pcre2-10.20.tar.gz
 RUN cd pcre2-10.20 && ./configure && make && make install
 
-# Add build files to image
-ADD ci.sh /root
-ADD build_kitura.sh /root
-ADD test_kitura.sh /root
+# Clone and build Kitura
+RUN git clone -b develop https://github.com/IBM-Swift/Kitura.git
+RUN cd /root/Kitura && swift build -Xcc -fblocks
+
+# Add utility build files to image
+ADD clone_build_kitura.sh /root
 ADD start_kitura_sample.sh /root
 
 USER root
-CMD /root/ci.sh
+CMD /root/start_kitura_sample.sh
