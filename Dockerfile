@@ -19,7 +19,7 @@
 
 FROM ibmcom/swift-ubuntu:latest
 MAINTAINER IBM Swift Engineering at IBM Cloud
-LABEL Description="Image to create a Linux image with the all the dependencies to build and run the Kitura sample app."
+LABEL Description="Docker Ubuntu image with the all the dependencies to build and run the Kitura sample app."
 
 # Expose default port for Kitura
 EXPOSE 8090
