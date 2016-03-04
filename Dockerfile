@@ -38,13 +38,14 @@ RUN wget http://ftp.exim.org/pub/pcre/pcre2-10.20.tar.gz
 RUN tar xvfz pcre2-10.20.tar.gz
 RUN cd pcre2-10.20 && ./configure && make && make install
 
-# Clone and build Kitura
-RUN git clone -b develop https://github.com/IBM-Swift/Kitura.git
-RUN cd /root/Kitura && swift build -Xcc -fblocks
-
 # Add utility build files to image
 ADD clone_build_kitura.sh /root
 ADD start_kitura_sample.sh /root
+ADD run_tests_kitura.sh /root
+ADD clone_build_test_kitura.sh /root
+
+# Clone and build Kitura using utility script
+RUN /root/clone_build_kitura.sh
 
 USER root
 CMD /root/start_kitura_sample.sh
