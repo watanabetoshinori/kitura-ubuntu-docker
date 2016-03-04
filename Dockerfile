@@ -29,6 +29,10 @@ ENV HOME /root
 ENV WORK_DIR /root
 ENV KITURA_BRANCH develop
 
+# Linux OS utils
+RUN apt-get update
+RUN apt-get install -y openjdk-7-jdk
+
 # Download regular expression library
 RUN wget http://ftp.exim.org/pub/pcre/pcre2-10.20.tar.gz
 RUN tar xvfz pcre2-10.20.tar.gz

@@ -39,5 +39,5 @@ cd /root/Kitura && swift build -Xcc -fblocks
 echo ">> Build for Kitura completed (see above for results)."
 
 # Run test cases for Kitura
-# Commenting out execution of test cases until we have xctests working on Linux
+# Suppressing execution of test cases until we have xctests working on Linux
 # cd /root/Kitura && swift test
