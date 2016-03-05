@@ -29,14 +29,12 @@ ENV HOME /root
 ENV WORK_DIR /root
 ENV KITURA_BRANCH develop
 
-# Linux OS utils
+# Linux OS utils and dependencies
 RUN apt-get update
 RUN apt-get install -y openjdk-7-jdk
-
-# Download regular expression library
-RUN wget http://ftp.exim.org/pub/pcre/pcre2-10.20.tar.gz
-RUN tar xvfz pcre2-10.20.tar.gz
-RUN cd pcre2-10.20 && ./configure && make && make install
+RUN apt-get install -y libhttp-parser-dev
+RUN apt-get install -y libhiredis-dev
+RUN apt-get install -y libcurl4-openssl-dev
 
 # Add utility build files to image
 ADD clone_build_kitura.sh /root
