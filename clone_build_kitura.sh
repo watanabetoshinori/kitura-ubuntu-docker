@@ -28,21 +28,21 @@ if [ -z "$KITURA_BRANCH" ]; then
   KITURA_BRANCH="develop"
 fi
 
-echo ">> About to clone branch '$KITURA_BRANCH' for Kitura"
+echo ">> About to clone branch '$KITURA_BRANCH' for Kitura-Sample"
 # Clone Kitura repo
-cd /root && rm -rf Kitura && git clone -b $KITURA_BRANCH https://github.com/IBM-Swift/Kitura.git
+cd /root && rm -rf Kitura-Sample && git clone -b $KITURA_BRANCH https://github.com/IBM-Swift/Kitura-Sample.git
 
 # Make the Kitura folder the working directory
-cd /root/Kitura
+cd /root/Kitura-Sample
 
 # Build Kitura
-echo ">> About to build Kitura..."
+echo ">> About to build Kitura-Sample..."
 swift build --fetch
 CC_FLAGS="-Xcc -fblocks"
-for MODULE_MAP in `find /root/Kitura/Packages -name module.modulemap`;
+for MODULE_MAP in `find /root/Kitura-Sample/Packages -name module.modulemap`;
 do
   CC_FLAGS+=" -Xcc -fmodule-map-file=$MODULE_MAP"
 done
 echo ">> CC_FLAGS: $CC_FLAGS"
 swift build $CC_FLAGS
-echo ">> Build for Kitura completed (see above for results)."
+echo ">> Build for Kitura-Sample completed (see above for results)."
