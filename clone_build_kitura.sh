@@ -37,12 +37,5 @@ cd /root/Kitura-Sample
 
 # Build Kitura
 echo ">> About to build Kitura-Sample..."
-swift build --fetch
-CC_FLAGS="-Xcc -fblocks"
-for MODULE_MAP in `find /root/Kitura-Sample/Packages -name module.modulemap`;
-do
-  CC_FLAGS+=" -Xcc -fmodule-map-file=$MODULE_MAP"
-done
-echo ">> CC_FLAGS: $CC_FLAGS"
-swift build $CC_FLAGS
+make
 echo ">> Build for Kitura-Sample completed (see above for results)."
