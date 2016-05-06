@@ -21,21 +21,21 @@
 # If any commands fail, we want the shell script to exit immediately.
 set -e
 
-# Clone and build Kitura
+# Clone and build Kitura-Starter-Bluemix
 # The Git branch to clone should be set as an environment variable.
 # If branch environment var is not set, then using develop as the default value.
 if [ -z "$KITURA_BRANCH" ]; then
   KITURA_BRANCH="develop"
 fi
 
-echo ">> About to clone branch '$KITURA_BRANCH' for Kitura-Sample"
+echo ">> About to clone branch '$KITURA_BRANCH' for Kitura-Starter-Bluemix"
 # Clone Kitura repo
-cd /root && rm -rf Kitura-Sample && git clone -b $KITURA_BRANCH https://github.com/IBM-Swift/Kitura-Sample.git
+cd /root && rm -rf Kitura-Starter-Bluemix && git clone -b $KITURA_BRANCH https://github.com/IBM-Swift/Kitura-Starter-Bluemix.git
 
 # Make the Kitura folder the working directory
-cd /root/Kitura-Sample
+cd /root/Kitura-Starter-Bluemix
 
-# Build Kitura
-echo ">> About to build Kitura-Sample..."
+# Build Kitura-Starter-Bluemix
+echo ">> About to build Kitura-Starter-Bluemix..."
 make
-echo ">> Build for Kitura-Sample completed (see above for results)."
+echo ">> Build for Kitura-Starter-Bluemix completed (see above for results)."
