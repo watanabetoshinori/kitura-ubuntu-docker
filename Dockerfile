@@ -30,11 +30,10 @@ ENV WORK_DIR /root
 ENV KITURA_BRANCH develop
 
 # Linux OS utils and dependencies
-RUN apt-get update
-RUN apt-get install -y openjdk-7-jdk
-RUN apt-get install -y libhttp-parser-dev
-RUN apt-get install -y libhiredis-dev
-RUN apt-get install -y libcurl4-openssl-dev
+RUN apt-get update && apt-get install -y \
+  libcurl4-openssl-dev \
+  libhiredis-dev \
+  openjdk-7-jdk
 
 # Add utility build files to image
 ADD clone_build_kitura.sh /root
