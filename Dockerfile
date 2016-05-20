@@ -32,7 +32,8 @@ ENV KITURA_BRANCH develop
 # Linux OS utils and dependencies
 RUN apt-get update && apt-get install -y \
   libcurl4-openssl-dev \
-  libhiredis-dev \
+  openssl \
+  libssl-dev \
   openjdk-7-jdk
 
 # Add utility build files to image
