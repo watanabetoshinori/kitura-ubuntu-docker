@@ -33,6 +33,7 @@ ENV KITURA_BRANCH develop
 RUN apt-get update && apt-get install -y \
   libcurl4-openssl-dev \
   openssl \
+  vim \
   libssl-dev \
   openjdk-7-jdk
 
@@ -41,6 +42,11 @@ ADD clone_build_kitura.sh /root
 ADD start_kitura_sample.sh /root
 ADD run_tests_kitura.sh /root
 ADD clone_build_test_kitura.sh /root
+ADD .vim /root/.vim
+ADD .vimrc /root
+ADD .bash_profile /root
+
+RUN echo "set -o vi" >> /root/.bashrc
 
 # Clone and build Kitura and sample app using utility script
 RUN /root/clone_build_kitura.sh
