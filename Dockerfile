@@ -17,7 +17,7 @@
 # Dockerfile to build a Docker image with all the dependencies to build and run
 # the Kitura sample application.
 
-FROM ibmcom/swift-ubuntu:latest
+FROM ibmcom/swift-ubuntu14:latest
 MAINTAINER IBM Swift Engineering at IBM Cloud
 LABEL Description="Docker Ubuntu image with the all the dependencies to build and run the Kitura sample app."
 
@@ -38,17 +38,17 @@ RUN apt-get update && apt-get install -y \
   openjdk-7-jdk
 
 # Add utility build files to image
-ADD clone_build_kitura.sh /root
-ADD start_kitura_sample.sh /root
-ADD run_tests_kitura.sh /root
-ADD clone_build_test_kitura.sh /root
+#ADD clone_build_kitura.sh /root
+#ADD start_kitura_sample.sh /root
+#ADD run_tests_kitura.sh /root
+#ADD clone_build_test_kitura.sh /root
 ADD .vim /root/.vim
 ADD .vimrc /root
 
 RUN echo "set -o vi" >> /root/.bashrc
 
 # Clone and build Kitura and sample app using utility script
-RUN /root/clone_build_kitura.sh
+#RUN /root/clone_build_kitura.sh
 
 USER root
-CMD /root/start_kitura_sample.sh
+#CMD /root/start_kitura_sample.sh
