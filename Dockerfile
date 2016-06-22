@@ -44,7 +44,6 @@ ADD run_tests_kitura.sh /root
 ADD clone_build_test_kitura.sh /root
 ADD .vim /root/.vim
 ADD .vimrc /root
-ADD .bash_profile /root
 
 RUN echo "set -o vi" >> /root/.bashrc
 
