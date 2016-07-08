@@ -17,7 +17,7 @@
 # Dockerfile to build a Docker image with all the dependencies to build and run
 # the Kitura sample application.
 
-FROM ibmcom/swift-ubuntu14:latest
+FROM tinyblue/ubuntu-14-swift-3:snapshot-2016-05-03-a
 MAINTAINER IBM Swift Engineering at IBM Cloud
 LABEL Description="Docker Ubuntu image with the all the dependencies to build and run the Kitura sample app."
 
@@ -27,7 +27,7 @@ EXPOSE 8090
 # Variables
 ENV HOME /root
 ENV WORK_DIR /root
-ENV KITURA_BRANCH develop
+ENV KITURA_BRANCH master
 
 # Linux OS utils and dependencies
 RUN apt-get update && apt-get install -y \
